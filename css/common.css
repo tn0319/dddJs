@@ -1,0 +1,27 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.content {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+/* t_align */
+.t_ac {
+    text-align: center;
+}
+
+/* t_weight */
+.t_b {
+    font-weight: 700;
+}
+
+/* t_color */
+.t_cm {
+    color: red;
+}

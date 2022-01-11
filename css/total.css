@@ -1,0 +1,67 @@
+/**
+공통
+**/
+.top_txt {
+    margin-bottom: 50px;
+}
+
+/* 리스트 */
+.list_wrap li + li {
+    margin-top: 30px;
+}
+.list_wrap li input[type="checkbox"] {
+    display: block;
+    margin-bottom: 10px;
+}
+.list_wrap li .flex_wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.list_wrap li .img_wrap {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.list_wrap li .img_wrap img {
+    width: 100%;
+}
+.list_wrap li .txt_wrap {
+    width: calc(100% - 270px);
+}
+.list_wrap li .txt_wrap .txt1 {
+    font-weight: 700;
+}
+.list_wrap li .txt_wrap .txt2 {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+.list_wrap li .txt_wrap .txt2 span {
+    color: #222;
+}
+.list_wrap li .txt_wrap .txt2 span::after {
+    content: '|';
+    color: #888;
+    padding: 0 10px;
+}
+.list_wrap li .txt_wrap .txt2 span:last-child::after {
+    display: none;
+}
+
+/**
+베스트 아이템
+**/
+.best h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+.best .speak {
+    margin-top: 20px; 
+}
+.best .speaker {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+}
