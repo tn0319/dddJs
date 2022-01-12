@@ -15,6 +15,9 @@ body {
 .t_ac {
     text-align: center;
 }
+.t_ar {
+    text-align: right;
+}
 
 /* t_weight */
 .t_b {

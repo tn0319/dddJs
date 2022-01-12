@@ -4,14 +4,51 @@
 .top_txt {
     margin-bottom: 50px;
 }
+/* 탭 */
+.tab_nav {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 30px;
+    background: #fff;
+}
+.tab_nav li {
+    flex: 1;
+}
+.tab_nav li:after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 25px;
+    background: #d9d9d9;
+    vertical-align: -6px;
+}
+.tab_nav li:last-child:after {
+    display: none;
+}
+.tab_nav li.on a {
+    color: red;
+    font-weight: 700;
+}
+.tab_nav li a {
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    width: calc(100% - 1px);
+}
+.tab_con > div {
+    display: none;
+}
+.tab_con > div:first-child {
+    display: block;
+}
 
 /* 리스트 */
 .list_wrap li + li {
     margin-top: 30px;
 }
 .list_wrap li input[type="checkbox"] {
-    display: block;
-    margin-bottom: 10px;
+    margin-right: 10px;
 }
 .list_wrap li .flex_wrap {
     display: flex;
@@ -19,16 +56,14 @@
     flex-wrap: wrap;
 }
 .list_wrap li .img_wrap {
-    width: 250px;
+    width: 200px;
+    height: 150px;
     border-radius: 10px;
     overflow: hidden;
     margin-right: 20px;
 }
-.list_wrap li .img_wrap img {
-    width: 100%;
-}
 .list_wrap li .txt_wrap {
-    width: calc(100% - 270px);
+    width: calc(100% - 250px);
 }
 .list_wrap li .txt_wrap .txt1 {
     font-weight: 700;
@@ -48,6 +83,72 @@
 }
 .list_wrap li .txt_wrap .txt2 span:last-child::after {
     display: none;
+}
+
+/* 페이 */
+.pay_wrap {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 20px;
+}
+.pay_wrap ul {
+    border-top: 2px solid #222;
+}
+.pay_wrap li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 40px 10px 10px;
+}
+.pay_wrap li::after {
+    content: "✖️";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.pay_wrap li .img_wrap {
+    width: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.pay_wrap li .txt_wrap {
+    width: calc(100% - 120px);
+}
+.pay_wrap li .select_box {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.pay_wrap li .txt_wrap .price::before {
+    content: "|";
+    color: #d9d9d9;
+    padding: 0 10px;
+}
+.pay_wrap li .txt_wrap .price strong {
+    font-size: 16px;
+}
+.pay_wrap .total_wrap strong{
+    font-size: 20px;
+    line-height: 70px;
+}
+.pay_wrap .pay_btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 4px;
+    background: #d9d9d9;
 }
 
 /**
