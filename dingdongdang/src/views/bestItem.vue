@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>베스트아이템</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/total.css">
-</head>
-<body>
+<template>
     <div class="content best">
         <div class="top_txt">
             <h1 class="t_ac">2022.01.11 오늘의 베스트 아이템!!!</h1>
@@ -24,7 +12,7 @@
             <li>
                 <div class="flex_wrap">
                     <div class="img_wrap">
-                        <img src="../../images/best/best_img_1.jpg" alt="베스트 아이템">
+                        <img src="../assets/images/best_img_1.jpg" alt="베스트 아이템">
                     </div>
                     <div class="txt_wrap">
                         <p class="txt1">백설공주가 먹고 너무 맛있어서 기절해버린 사과</p>
@@ -35,7 +23,7 @@
             <li>
                 <div class="flex_wrap">
                     <div class="img_wrap">
-                        <img src="../../images/best/best_img_2.jpg" alt="베스트 아이템">
+                        <img src="../assets/images/best_img_2.jpg" alt="베스트 아이템">
                     </div>
                     <div class="txt_wrap">
                         <p class="txt1">짱 맛있는 머스타드 from 머쓱타드</p>
@@ -46,7 +34,7 @@
             <li>
                 <div class="flex_wrap">
                     <div class="img_wrap">
-                        <img src="../../images/best/best_img_3.jpg" alt="베스트 아이템">
+                        <img src="../assets/images/best_img_3.jpg" alt="베스트 아이템">
                     </div>
                     <div class="txt_wrap">
                         <p class="txt1">지금 진짜 왕 비싼 딸기</p>
@@ -56,6 +44,10 @@
             </li>
         </ul>
     </div>
-    <script src="../../js/total.js"></script>
-</body>
-</html>
+</template>
+
+<script>
+export default {
+    name : 'bestItem',
+}
+</script>

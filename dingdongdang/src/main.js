@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import a from '@/assets/js/common.js'
+
+/* css */
+import '@/assets/css/style.css'
 
 Vue.config.productionTip = false
+Vue.use(a);
 
 new Vue({
   router,

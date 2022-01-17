@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이템리스트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/total.css">
-</head>
-<body>
+<template>
     <div class="content list">
         <div class="tab_wrap">
-            <ul class="tab_nav">
+            <ul @click="tabClick" class="tab_nav">
               <li class="on"><a href="#">과일</a></li>
               <li><a href="#">야채</a></li>
               <li><a href="#">생선</a></li>
@@ -26,7 +14,7 @@
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
                                 <div class="img_wrap">
-                                    <img src="../../images/best/best_img_1.jpg" alt="베스트 아이템">
+                                    <img src="../assets/images/best_img_1.jpg" alt="베스트 아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">백설공주가 먹고 너무 맛있어서 기절해버린 사과</p>
@@ -42,7 +30,7 @@
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
                                 <div class="img_wrap">
-                                    <img src="../../images/normal/img_1.jpg" alt="아이템">
+                                    <img src="../assets/images/img_1.jpg" alt="아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">토마토는 야채라구요!</p>
@@ -54,7 +42,7 @@
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
                                 <div class="img_wrap">
-                                    <img src="../../images/normal/img_4.jpg" alt="아이템">
+                                    <img src="../assets/images/img_4.jpg" alt="아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">아쓱파라거쓱,,,,;</p>
@@ -70,7 +58,7 @@
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
                                 <div class="img_wrap">
-                                    <img src="../../images/normal/img_2.jpg" alt="아이템">
+                                    <img src="../assets/images/img_2.jpg" alt="아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">니모는 안팔아요. 이쁜이....</p>
@@ -86,7 +74,7 @@
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
                                 <div class="img_wrap">
-                                    <img src="../../images/normal/img_3.jpg" alt="아이템">
+                                    <img src="../assets/images/img_3.jpg" alt="아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">준호오빠 너무 잘생겼어요</p>
@@ -102,7 +90,7 @@
             <ul>
                 <li>
                     <div class="img_wrap">
-                        <img src="../../images/normal/img_2.jpg" alt="아이템">
+                        <img src="../assets/images/img_2.jpg" alt="아이템">
                     </div>
                     <div class="txt_wrap">
                         <p class="t_b">니모는 안팔아요. 이쁜이....</p>
@@ -128,7 +116,7 @@
                 </li>
                 <li>
                     <div class="img_wrap">
-                        <img src="../../images/normal/img_1.jpg" alt="아이템">
+                        <img src="../assets/images/img_1.jpg" alt="아이템">
                     </div>
                     <div class="txt_wrap">
                         <p class="t_b">토마토는 야채라구요</p>
@@ -157,6 +145,14 @@
             <button class="pay_btn">결제하기</button>
         </div>
     </div>
-    <script src="../../js/total.js"></script>
-</body>
-</html>
+</template>
+<script>
+export default {
+    name : 'list',
+    methods : {
+        tabClick() {
+            console.log("a");
+        },
+    }
+}
+</script>

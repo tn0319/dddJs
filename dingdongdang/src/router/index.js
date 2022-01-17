@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/Main.vue'
+import bestItem from '../views/bestItem.vue'
+import list from '../views/list.vue'
 import Query from '../views/Query.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Main',
-    component: Main,
+    path: '/best',
+    name: 'bestItem',
+    component: bestItem,
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: list,
   },
   {
     path: '/about',
