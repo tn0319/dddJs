@@ -36,12 +36,6 @@
     text-align: center;
     width: calc(100% - 1px);
 }
-.tab_con > div {
-    display: none;
-}
-.tab_con > div:first-child {
-    display: block;
-}
 
 /* 리스트 */
 .list_wrap li + li {
@@ -107,7 +101,7 @@
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 40px 10px 10px;
 }
-.pay_wrap li::after {
+.pay_wrap li button {
     content: "✖️";
     position: absolute;
     right: 10px;

@@ -1,31 +1,31 @@
 <template>
     <div class="content list">
         <div class="tab_wrap">
-            <ul @click="tabClick" class="tab_nav">
-              <li class="on"><a href="#">과일</a></li>
-              <li><a href="#">야채</a></li>
-              <li><a href="#">생선</a></li>
-              <li><a href="#">기타</a></li>
+            <ul class="tab_nav">
+              <li v-for="(val, idx) in tabs" v-bind:key="'tab' + idx" :class="{on:currentTab===idx}">
+                  <a href="#" @click="currentTab = idx">{{val}}</a>
+              </li>
             </ul>
             <div class="tab_con">
-                <div>
+                <div v-show="currentTab == 0">
                     <ul class="list_wrap">
-                        <!-- <li>
-                            <div class="flex_wrap">
-                                <input type="checkbox" name="item">
+                        <li v-for="item in items" v-bind:key="item.id">
+                            <input type="checkbox" v-model="itemChk" :id="item.id" :value="item">
+                            <label :for="item.id" class="flex_wrap">
                                 <div class="img_wrap">
-                                    <img src="../assets/images/best_img_1.jpg" alt="베스트 아이템">
+                                    <img :src="item.images" alt="베스트 아이템">
                                 </div>
                                 <div class="txt_wrap">
-                                    <p class="txt1">백설공주가 먹고 너무 맛있어서 기절해버린 사과</p>
-                                    <p class="txt2"><span><strong class="t_b">단위</strong> : 1박스</span><span><strong class="t_b">가격</strong> : 10,000원</span></p>
+                                    <p class="txt1">{{item.name}}</p>
+                                    <p class="txt2"><span><strong class="t_b">단위</strong> : 1{{item.unit}}</span><span><strong class="t_b">가격</strong> : {{item.price}}원</span></p>
                                 </div>
-                            </div>
-                        </li> -->
+                            </label>
+                        </li>
                     </ul>
                 </div>
-                <!-- <div>
-                    <ul class="list_wrap">
+                <div v-show="currentTab == 1">
+                    tab02
+                    <!-- <ul class="list_wrap">
                         <li>
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
@@ -50,10 +50,11 @@
                                 </div>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
-                <div>
-                    <ul class="list_wrap">
+                <div v-show="currentTab == 2">
+                    tab03
+                    <!-- <ul class="list_wrap">
                         <li>
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
@@ -66,10 +67,11 @@
                                 </div>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
-                <div>
-                    <ul class="list_wrap">
+                <div v-show="currentTab == 3">
+                    tab04
+                    <!-- <ul class="list_wrap">
                         <li>
                             <div class="flex_wrap">
                                 <input type="checkbox" name="item">
@@ -82,66 +84,32 @@
                                 </div>
                             </div>
                         </li>
-                    </ul>
-                </div> -->
+                    </ul> -->
+                </div>
             </div>
         </div>
-        <div class="pay_wrap">
+        <div class="pay_wrap" v-if="itemChk.length">
             <ul>
-                <li>
+                <li v-for="(item, idx) in itemChk" v-bind:key="item.id">
                     <div class="img_wrap">
-                        <img src="../assets/images/img_2.jpg" alt="아이템">
+                        <img :src="item.images" :alt="item.name">
                     </div>
                     <div class="txt_wrap">
-                        <p class="t_b">니모는 안팔아요. 이쁜이....</p>
+                        <p class="t_b">{{item.name}}</p>
                         <div class="select_box">
                             <div class="num">
                                 <span>수량 :</span>
-                                <select>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
+                                <select v-model="item.amount">
+                                    <option v-for="n in 10" :key="n" :value="n" >{{n}}</option>
                                 </select>
                             </div>
-                            <div class="price">가격 : <strong class="t_b">1,000,000,000</strong>원</div>
+                            <div class="price">가격 : <strong class="t_b">{{item.amount * item.price}}</strong>원</div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="img_wrap">
-                        <img src="../assets/images/img_1.jpg" alt="아이템">
-                    </div>
-                    <div class="txt_wrap">
-                        <p class="t_b">토마토는 야채라구요</p>
-                        <div class="select_box">
-                            <div class="num">
-                                <span>수량 :</span>
-                                <select>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                </select>
-                            </div>
-                            <div class="price">가격 : <strong class="t_b">20,000</strong>원</div>
-                        </div>
-                    </div>
+                    <button @click="itemChkDelete(idx)">✖️</button>
                 </li>
             </ul>
-            <p class="total_wrap t_ar">총 <strong class="t_b">20,000</strong>원</p>
+            <p class="total_wrap t_ar">총 <strong class="t_b">{{ totalPrice }}</strong>원</p>
             <button class="pay_btn">결제하기</button>
         </div>
     </div>
@@ -149,9 +117,36 @@
 <script>
 export default {
     name : 'list',
-    methods : {
-        tabClick() {
-            console.log("a");
+    data() {
+        return {
+            currentTab : 0,
+            tabs: ['과일','야채','생선','기타'],
+            items: [{
+                id : 'apple',
+                name : '백설공주가 먹고 너무 맛있어서 기절해버린 사과',
+                unit : '박스',
+                price : '10000',
+                images : require('@/assets/images/best_img_1.jpg'),
+                amount : 1,
+            },{
+                id : 'tomato',
+                name : '토마토는 야채라구요!',
+                unit : '박스',
+                price : '8000',
+                images : require('@/assets/images/img_1.jpg'),
+                amount : 1,
+            }],
+            itemChk : [],
+        }
+    },
+    computed: {
+        totalPrice: function() {
+            return this.itemChk.map((val) => val.amount * val.price).reduce((prev, corrent) => prev + corrent);
+        },
+    },
+    methods: {
+        itemChkDelete: function(idx) {
+            this.itemChk.splice(idx, 1);
         },
     }
 }
