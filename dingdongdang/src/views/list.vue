@@ -121,23 +121,19 @@ export default {
         return {
             currentTab : 0,
             tabs: ['과일','야채','생선','기타'],
-            items: [{
-                id : 'apple',
-                name : '백설공주가 먹고 너무 맛있어서 기절해버린 사과',
-                unit : '박스',
-                price : '10000',
-                images : require('@/assets/images/best_img_1.jpg'),
-                amount : 1,
-            },{
-                id : 'tomato',
-                name : '토마토는 야채라구요!',
-                unit : '박스',
-                price : '8000',
-                images : require('@/assets/images/img_1.jpg'),
-                amount : 1,
-            }],
+            items: null,
             itemChk : [],
         }
+    },
+    mounted() {
+        this.$http.get('https://github.com/tn0319/dddJs/tree/main/dingdongdang/src/assets/json/fruit.json')
+            .then(function(res) {
+                console.log(res);
+            })
+            .catch(function(err) {
+                console.log(err.response.status, err.response.headers);
+            })
+
     },
     computed: {
         totalPrice: function() {

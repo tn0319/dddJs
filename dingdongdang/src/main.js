@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import a from '@/assets/js/common.js'
+import axios from 'axios'
+
 
 /* css */
 import '@/assets/css/style.css'
 
 Vue.config.productionTip = false
-Vue.use(a);
+Vue.prototype.$http = axios
 
 new Vue({
   router,
