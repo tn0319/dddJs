@@ -8,7 +8,7 @@ import axios from 'axios'
 import '@/assets/css/style.css'
 
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.prototype.$axios = axios
 
 new Vue({
   router,

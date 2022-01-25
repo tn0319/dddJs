@@ -9,11 +9,11 @@
             <div class="tab_con">
                 <div v-show="currentTab == 0">
                     <ul class="list_wrap">
-                        <li v-for="item in items" v-bind:key="item.id">
+                        <li v-for="item in items.data" v-bind:key="item.id">
                             <input type="checkbox" v-model="itemChk" :id="item.id" :value="item">
                             <label :for="item.id" class="flex_wrap">
                                 <div class="img_wrap">
-                                    <img :src="item.images" alt="베스트 아이템">
+                                    <img :src="require(item.images)" alt="베스트 아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">{{item.name}}</p>
@@ -121,18 +121,21 @@ export default {
         return {
             currentTab : 0,
             tabs: ['과일','야채','생선','기타'],
-            items: null,
+            items: [],
             itemChk : [],
         }
     },
+    created() {
+        this.getJson();
+        // this.$axios.get('/json/fruit.json')
+        //     .then(res => {
+        //         this.items = res;
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+    },
     mounted() {
-        this.$http.get('https://github.com/tn0319/dddJs/tree/main/dingdongdang/src/assets/json/fruit.json')
-            .then(function(res) {
-                console.log(res);
-            })
-            .catch(function(err) {
-                console.log(err.response.status, err.response.headers);
-            })
 
     },
     computed: {
@@ -144,6 +147,14 @@ export default {
         itemChkDelete: function(idx) {
             this.itemChk.splice(idx, 1);
         },
+        getJson: async function() {
+            try {
+                const response = await this.$axios.get('/json/fruit.json');
+                this.items = response;
+            } catch(e) {
+                console.log(e)
+            }
+        }
     }
 }
 </script>
