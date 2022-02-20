@@ -1,0 +1,10 @@
+[
+    {
+        "id" : "apple",
+        "name" : "백설공주가 먹고 너무 맛있어서 기절해버린 사과",
+        "unit" : "박스",
+        "price" : 10000,
+        "images" : "@/assets/images/best_img_1.jpg",
+        "amount" : 1
+    }
+]
