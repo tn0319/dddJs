@@ -13,7 +13,7 @@
                             <input type="checkbox" v-model="itemChk" :id="item.id" :value="item">
                             <label :for="item.id" class="flex_wrap">
                                 <div class="img_wrap">
-                                    <img :src="require(item.images)" alt="베스트 아이템">
+                                    <img :src="getImg(item.images)" alt="베스트 아이템">
                                 </div>
                                 <div class="txt_wrap">
                                     <p class="txt1">{{item.name}}</p>
@@ -92,7 +92,7 @@
             <ul>
                 <li v-for="(item, idx) in itemChk" v-bind:key="item.id">
                     <div class="img_wrap">
-                        <img :src="item.images" :alt="item.name">
+                        <img :src="getImg(item.images)" :alt="item.name">
                     </div>
                     <div class="txt_wrap">
                         <p class="t_b">{{item.name}}</p>
@@ -149,11 +149,14 @@ export default {
         },
         getJson: async function() {
             try {
-                const response = await this.$axios.get('/json/fruit.json');
+                const response = await this.$axios.get('./json/fruit.json');
                 this.items = response;
             } catch(e) {
                 console.log(e)
             }
+        },
+        getImg(src) {
+            return require(`@/assets/images/${src}.jpg`)
         }
     }
 }
